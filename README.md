@@ -5,43 +5,63 @@
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 
-> Gulp plugin for Mdast
+> Gulp plugin for [mdast][mdast] — markdown processor powered by plugins
 
 ## Install
 
-    npm install --save gulp-mdast
+    npm install --save-dev gulp-mdast
 
 ## Usage
 
 ```js
-import gulpMdast from 'gulp-mdast';
+import gulp from 'gulp';
+import mdast from 'gulp-mdast';
+import html from 'mdast-html';
 
-gulpMdast('unicorns'); // unicorns
+gulp.task('default', () =>
+  gulp.src('*.md')
+    .pipe(mdast.use(html))
+    .pipe(gulp.dest('dist'))
+);
 ```
 
 ## API
 
-### gulpMdast(input, [options])
-
-#### input
-
-*Required*  
-Type: `String`
-
-Lorem ipsum.
+### gulpMdast([options])
 
 #### options
 
-##### foo
+Type: `Object`  
+Default: `{}`
 
-Type: `Boolean`  
-Default: `false`
+See the [`mdast.process`][mdast-opts] options.
 
-Lorem ipsum.
+### gulpMdast.use([plugin][mdast-plugins][, options])
+
+Change the way [`mdast`][mdast] works by using a [`plugin`][mdast-plugins].
+
+#### plugin
+
+*Required*  
+Type: `Function|Array.<Function>`
+
+A [mdast plugin][mdast-plugins] or `Array` of plugins.
+
+#### options
+
+Type: `Object`  
+Default: `{}`
+
+Passed to plugin. Specified by its documentation.
 
 ## License
 
 MIT © [Denys Dovhan](http://denysdovhan.com)
+
+[mdast]: http://mdast.js.org/
+[mdast-opts]: https://github.com/wooorm/mdast/blob/master/doc/mdastsetting.7.md
+[mdast-use]: https://github.com/wooorm/mdast#mdastuseplugin-options
+[mdast-plugins]: https://github.com/wooorm/mdast/blob/master/doc/plugins.md
 
 [npm-url]: https://npmjs.org/package/gulp-mdast
 [npm-image]: https://img.shields.io/npm/v/gulp-mdast.svg?style=flat-square
