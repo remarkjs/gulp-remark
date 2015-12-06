@@ -41,6 +41,7 @@
     "babel-plugin-add-module-exports": "^0.1.1",
     "babel-preset-es2015": "^6.1.18",
     "coveralls": "*",
+    "event-stream": "^3.3.2",
     "isparta": "*",
     "mdast-html": "^1.2.1",
     "mocha": "*",
