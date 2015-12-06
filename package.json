@@ -45,5 +45,10 @@
     "mocha": "*",
     "npm-run-all": "*",
     "rimraf": "*"
+  },
+  "dependencies": {
+    "gulp-util": "^3.0.7",
+    "mdast": "^2.3.0",
+    "through2": "^2.0.0"
   }
 }
