@@ -1,0 +1,10 @@
+{
+  "plugins": {
+    "lint": {
+      "code-block-style": false
+    }
+  },
+  "settings": {
+    "commonmark": true
+  }
+}
