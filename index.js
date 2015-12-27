@@ -1,32 +1,56 @@
-import { PluginError } from 'gulp-util';
-import { obj } from 'through2';
-import mdast from 'mdast';
+'use strict';
+import through from 'through2';
+import convertVinylToVfile from 'convert-vinyl-to-vfile';
+import configure from 'remark/lib/cli/file-set-pipeline/configure';
+import transform from 'remark/lib/cli/file-set-pipeline/transform';
+import log from 'remark/lib/cli/file-set-pipeline/log';
 
-import pkg from './package';
+export default function gulpMdast() {
+  return through.obj(function (file, encoding, callback) {
+    let error = null;
+    let convertedFile;
+    let vFile;
+    let context;
 
-const PLUGIN_NAME = pkg.name;
-
-export default function gulpMdast(options = {}) {
-  const M = mdast();
-
-  const plugin = obj(function (file, enc, cb) {
-    if (file.isNull()) {
-      return cb(null, file);
+    if (!file || file.isNull()) {
+      this.push();
+      return callback();
     }
-    if (file.isStream()) {
-      return cb(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
-    }
-    if (file.isBuffer()) {
-      file.contents = new Buffer(M.process(file.contents.toString(), options));
-    }
-    this.push(file);
-    cb(null, file);
+
+    vFile = convertVinylToVfile(file);
+
+    // Hidden-feature to enable mdast to rewrite files.
+    // Otherwise the CLI ignores you.
+    vFile.namespace('remark:cli').given = true;
+
+    // See for more options: remark/lib/cli/cli
+    // Probably also insert plugins here when given.
+    context = {
+      detectRC: true,
+      cwd: process.cwd(),
+      stdout: process.stdout,
+      stderr: process.stderr,
+      files: [
+        vFile
+      ]
+    };
+
+    // remarkignore(5) is not yet supported, as its use is inside
+    // remark/lib/cli/file-set-pipeline/file-system.
+
+    configure(context);
+
+    transform(context, function (err) {
+      if (err) {
+        callback(error);
+      } else {
+        log(context);
+
+        // Done! TODO: set `vFile.contents` back on the vinyl `file`.
+        callback(null, file);
+      }
+    })
+  }, function (callback) {
+    callback();
   });
-
-  plugin.use = (pls, opts) => {
-    M.use(pls, opts);
-    return plugin;
-  };
-
-  return plugin;
 };
