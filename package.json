@@ -1,7 +1,7 @@
 {
-  "name": "gulp-mdast",
+  "name": "gulp-remark",
   "version": "0.0.0",
-  "description": "Gulp plugin for Mdast",
+  "description": "Gulp plugin for Remark",
   "main": "index.es5.js",
   "scripts": {
     "watch": "npm run transpile -- --watch",
@@ -18,11 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/denysdovhan/gulp-mdast.git"
+    "url": "git+https://github.com/denysdovhan/gulp-remark.git"
   },
   "keywords": [
     "gulpplugin",
     "mdast",
+    "remark",
     "md",
     "markdown",
     "gulp"
@@ -30,10 +31,11 @@
   "author": "Denys Dovhan <email@denysdovhan.com> (http://denysdovhan.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/denysdovhan/gulp-mdast/issues"
+    "url": "https://github.com/denysdovhan/gulp-remark/issues"
   },
-  "homepage": "https://github.com/denysdovhan/gulp-mdast#readme",
+  "homepage": "https://github.com/denysdovhan/gulp-remark#readme",
   "dependencies": {
+    "gulp-util": "^3.0.7",
     "remark": "^3.0.0",
     "convert-vinyl-to-vfile": "^0.1.1",
     "through2": "^2.0.0"
@@ -54,10 +56,5 @@
     "npm-run-all": "*",
     "remark-lint": "^2.0.0",
     "rimraf": "*"
-  },
-  "dependencies": {
-    "gulp-util": "^3.0.7",
-    "mdast": "^2.3.0",
-    "through2": "^2.0.0"
   }
 }

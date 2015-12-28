@@ -5,7 +5,7 @@ import configure from 'remark/lib/cli/file-set-pipeline/configure';
 import transform from 'remark/lib/cli/file-set-pipeline/transform';
 import log from 'remark/lib/cli/file-set-pipeline/log';
 
-export default function gulpMdast() {
+export default function gulpRemark() {
   return through.obj(function (file, encoding, callback) {
     let error = null;
     let convertedFile;
@@ -49,7 +49,7 @@ export default function gulpMdast() {
         // Done! TODO: set `vFile.contents` back on the vinyl `file`.
         callback(null, file);
       }
-    })
+    });
   }, function (callback) {
     callback();
   });

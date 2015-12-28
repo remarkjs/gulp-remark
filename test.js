@@ -1,7 +1,7 @@
 import { File, PluginError } from 'gulp-util';
 import { equal, throws } from 'assert';
 import es from 'event-stream';
-import gulpMdast from './index';
+import gulpRemark from './index';
 import html from 'mdast-html';
 
 const fixture = new File({
@@ -10,9 +10,9 @@ const fixture = new File({
 });
 
 it('should not do anything', done => {
-  const stream = gulpMdast({
-    emphasis: "*",
-    strong: "_"
+  const stream = gulpRemark({
+    emphasis: '*',
+    strong: '_'
   });
   stream.write(fixture);
 
@@ -24,7 +24,7 @@ it('should not do anything', done => {
 });
 
 it('should use plugins', done => {
-  const stream = gulpMdast().use(html);
+  const stream = gulpRemark().use(html);
   stream.write(fixture);
 
   stream.once('data', file => {
@@ -41,5 +41,5 @@ it('should throw PluginError with streams', () => {
   const stream = new File({
     contents: es.readArray(['_italic_', '**bold**', '.'])
   });
-  throws(() => { gulpMdast().write(stream) }, PluginError);
+  throws(() => { gulpRemark().write(stream); }, PluginError);
 });
