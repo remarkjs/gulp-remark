@@ -1,56 +1,50 @@
-'use strict';
-import through from 'through2';
-import convertVinylToVfile from 'convert-vinyl-to-vfile';
-import configure from 'remark/lib/cli/file-set-pipeline/configure';
-import transform from 'remark/lib/cli/file-set-pipeline/transform';
-import log from 'remark/lib/cli/file-set-pipeline/log';
+import { PluginError } from 'gulp-util';
+import { obj } from 'through2';
+import toVFile from 'convert-vinyl-to-vfile';
+import CLI     from 'remark/lib/cli/cli';
+import run     from 'remark/lib/cli';
+
+import pkg from './package';
+
+const PLUGIN_NAME = pkg.name;
 
 export default function gulpRemark() {
-  return through.obj(function (file, encoding, callback) {
-    let error = null;
-    let convertedFile;
-    let vFile;
-    let context;
+  const cli = new CLI({
+    detectRC: true,
+    cwd:      process.cwd(),
+    stdout:   process.stdout,
+    stderr:   process.stderr
+  });
 
-    if (!file || file.isNull()) {
+  const plugin = obj(function (file, encoding, callback) {
+    if (file.isNull()) {
       this.push();
-      return callback();
+      return callback(null, file);
     }
 
-    vFile = convertVinylToVfile(file);
+    if (file.isStream()) {
+      return callback(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
+    }
 
-    // Hidden-feature to enable mdast to rewrite files.
-    // Otherwise the CLI ignores you.
-    vFile.namespace('remark:cli').given = true;
-
-    // See for more options: remark/lib/cli/cli
-    // Probably also insert plugins here when given.
-    context = {
-      detectRC: true,
-      cwd: process.cwd(),
-      stdout: process.stdout,
-      stderr: process.stderr,
-      files: [
-        vFile
-      ]
-    };
-
-    // remarkignore(5) is not yet supported, as its use is inside
-    // remark/lib/cli/file-set-pipeline/file-system.
-
-    configure(context);
-
-    transform(context, function (err) {
-      if (err) {
-        callback(error);
-      } else {
-        log(context);
-
-        // Done! TODO: set `vFile.contents` back on the vinyl `file`.
-        callback(null, file);
-      }
-    });
-  }, function (callback) {
-    callback();
+    if (file.isBuffer()) {
+      cli.files = [toVFile(file)];
+      run(cli, (error, success) => {
+        console.log('done! ', error, 'success? ', success);
+        if (error) {
+          callback(error);
+        } else {
+          console.log(success);
+          // this.push(?);
+          callback(null, file);
+        }
+      });
+    }
   });
+
+  plugin.use = (pls, opts) => {
+    cli.use(pls, opts);
+    return plugin;
+  };
+
+  return plugin;
 };

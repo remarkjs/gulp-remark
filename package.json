@@ -36,7 +36,7 @@
   "homepage": "https://github.com/denysdovhan/gulp-remark#readme",
   "dependencies": {
     "gulp-util": "^3.0.7",
-    "remark": "^3.0.0",
+    "remark": "^3.1.0",
     "convert-vinyl-to-vfile": "^0.1.1",
     "through2": "^2.0.0"
   },
