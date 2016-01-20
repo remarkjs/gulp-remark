@@ -3,6 +3,7 @@ import { obj } from 'through2';
 import toVFile from 'convert-vinyl-to-vfile';
 import CLI     from 'remark/lib/cli/cli';
 import run     from 'remark/lib/cli';
+import reporter from 'vfile-reporter';
 
 import pkg from './package';
 
@@ -32,7 +33,7 @@ export default function gulpRemark() {
         if (error) {
           callback(error);
         } else {
-          console.log(cli.files);
+          console.log(reporter(cli.files));
           file.contents = new Buffer(cli.files[0].contents, 'utf-8');
           callback(null, file);
         }
