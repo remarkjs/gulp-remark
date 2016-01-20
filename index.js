@@ -29,12 +29,11 @@ export default function gulpRemark() {
     if (file.isBuffer()) {
       cli.files = [toVFile(file)];
       run(cli, (error, success) => {
-        console.log('done! ', error, 'success? ', success);
         if (error) {
           callback(error);
         } else {
-          console.log(success);
-          // this.push(?);
+          console.log(cli.files);
+          file.contents = new Buffer(cli.files[0].contents, 'utf-8');
           callback(null, file);
         }
       });
