@@ -10,8 +10,10 @@ import pkg from './package';
 const PLUGIN_NAME = pkg.name;
 
 export default function gulpRemark() {
+
   const cli = new CLI({
     detectRC: true,
+    detectIgnore: true,
     cwd:      process.cwd(),
     stdout:   process.stdout,
     stderr:   process.stderr
@@ -19,7 +21,6 @@ export default function gulpRemark() {
 
   const plugin = obj(function (file, encoding, callback) {
     if (file.isNull()) {
-      this.push();
       return callback(null, file);
     }
 
@@ -28,10 +29,15 @@ export default function gulpRemark() {
     }
 
     if (file.isBuffer()) {
-      cli.files = [toVFile(file)];
+      const VFile = toVFile(file);
+      cli.files = [VFile];
+
       run(cli, (error, success) => {
         if (error) {
           callback(error);
+        } else if (cli.traverser.ignore.shouldIgnore(VFile.basename())) {
+          // Return callback if file is in .remarkignore
+          callback(null, file);
         } else {
           console.log(reporter(cli.files));
           file.contents = new Buffer(cli.files[0].contents, 'utf-8');
