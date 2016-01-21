@@ -52,10 +52,9 @@
     "event-stream": "^3.3.2",
     "gulp": "^3.9.0",
     "isparta": "*",
-    "mdast-html": "^1.2.1",
     "mocha": "*",
     "npm-run-all": "*",
-    "remark-lint": "^2.0.0",
+    "remark-html": "^2.0.2",
     "rimraf": "*"
   }
 }

@@ -1,8 +1,9 @@
 import { File, PluginError } from 'gulp-util';
-import { equal, throws } from 'assert';
-import es from 'event-stream';
-import gulpRemark from './index';
-import html from 'mdast-html';
+import { equal, throws }     from 'assert';
+import html                  from 'remark-html';
+import es                    from 'event-stream';
+
+import gulpRemark            from './index';
 
 const fixture = new File({
   path: 'fixture.txt',
@@ -10,15 +11,12 @@ const fixture = new File({
 });
 
 it('should not do anything', done => {
-  const stream = gulpRemark({
-    emphasis: '*',
-    strong: '_'
-  });
+  const stream = gulpRemark();
   stream.write(fixture);
 
   stream.once('data', file => {
     equal(file.relative, 'fixture.txt');
-    equal(file.contents.toString().trim(), `*italic*, __bold__.`);
+    equal(file.contents.toString().trim(), `_italic_, **bold**.`);
     done();
   });
 });
