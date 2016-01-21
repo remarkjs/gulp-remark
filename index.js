@@ -9,7 +9,9 @@ import pkg from './package';
 
 const PLUGIN_NAME = pkg.name;
 
-export default function gulpRemark() {
+export default function gulpRemark(options = {
+  silent: false
+}) {
 
   const cli = new CLI({
     detectRC: true,
@@ -39,7 +41,9 @@ export default function gulpRemark() {
           // Return callback if file is in .remarkignore
           callback(null, file);
         } else {
-          console.log(reporter(cli.files));
+          // if not silent, output messages
+          if (!options.silent) console.log(reporter(cli.files));
+          // Return transformed contents
           file.contents = new Buffer(cli.files[0].contents, 'utf-8');
           callback(null, file);
         }

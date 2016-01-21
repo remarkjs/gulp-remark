@@ -11,7 +11,7 @@ const fixture = new File({
 });
 
 it('should not do anything', done => {
-  const stream = gulpRemark();
+  const stream = gulpRemark({ silent: true });
   stream.write(fixture);
 
   stream.once('data', file => {
@@ -22,7 +22,7 @@ it('should not do anything', done => {
 });
 
 it('should use plugins', done => {
-  const stream = gulpRemark().use(html);
+  const stream = gulpRemark({ silent: true }).use(html);
   stream.write(fixture);
 
   stream.once('data', file => {
