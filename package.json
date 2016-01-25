@@ -1,6 +1,6 @@
 {
   "name": "gulp-remark",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Gulp plugin for Remark",
   "main": "index.es5.js",
   "scripts": {
