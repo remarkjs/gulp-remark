@@ -5,7 +5,7 @@
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 
-> Gulp plugin for [Remark][remark] — markdown processor powered by plugins
+> Gulp plugin for [remark][remark] — markdown processor powered by plugins
 
 ## Install
 
@@ -17,7 +17,7 @@
 import gulp from 'gulp';
 import remark from 'gulp-remark';
 import html from 'remark-html';
-import lint from 'remark-html';
+import lint from 'remark-lint';
 
 gulp.task('default', () =>
   gulp.src('*.md')
@@ -30,7 +30,7 @@ gulp.task('default', () =>
 
 ### gulpRemark()
 
-Gulp plug-in. It processes your files through [Remark][remark]. If you want to define specified options, use [`.remarkrc`][remarkrc]. The ignoring of files available using [`.remarkignore`][remarkignore] file.
+Gulp plug-in. It processes your files through [remark][remark]. If you want to define specified options, use [`.remarkrc`][remarkrc]. The ignoring of files available using [`.remarkignore`][remarkignore] file.
 
 ### gulpRemark().use([plugin][remark-plugins][, options])
 
