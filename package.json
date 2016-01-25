@@ -1,7 +1,7 @@
 {
-  "name": "gulp-mdast",
+  "name": "gulp-remark",
   "version": "0.0.0",
-  "description": "Gulp plugin for Mdast",
+  "description": "Gulp plugin for Remark",
   "main": "index.es5.js",
   "scripts": {
     "watch": "npm run transpile -- --watch",
@@ -18,11 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/denysdovhan/gulp-mdast.git"
+    "url": "git+https://github.com/denysdovhan/gulp-remark.git"
   },
   "keywords": [
     "gulpplugin",
     "mdast",
+    "remark",
     "md",
     "markdown",
     "gulp"
@@ -30,19 +31,29 @@
   "author": "Denys Dovhan <email@denysdovhan.com> (http://denysdovhan.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/denysdovhan/gulp-mdast/issues"
+    "url": "https://github.com/denysdovhan/gulp-remark/issues"
   },
-  "homepage": "https://github.com/denysdovhan/gulp-mdast#readme",
+  "homepage": "https://github.com/denysdovhan/gulp-remark#readme",
+  "dependencies": {
+    "convert-vinyl-to-vfile": "^0.1.1",
+    "gulp-util": "^3.0.7",
+    "remark": "^3.2.2",
+    "through2": "^2.0.0",
+    "vfile-reporter": "^1.5.0"
+  },
   "devDependencies": {
     "assert": "*",
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",
+    "babel-eslint": "^4.1.6",
     "babel-plugin-add-module-exports": "^0.1.1",
     "babel-preset-es2015": "^6.1.18",
     "coveralls": "*",
+    "event-stream": "^3.3.2",
     "isparta": "*",
     "mocha": "*",
     "npm-run-all": "*",
+    "remark-html": "^2.0.2",
     "rimraf": "*"
   }
 }
