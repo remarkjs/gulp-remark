@@ -9,13 +9,12 @@ import pkg from './package';
 
 const PLUGIN_NAME = pkg.name;
 
-export default function gulpRemark(options = {
-  silent: false
-}) {
+export default function gulpRemark(options = {}) {
 
   const cli = new CLI({
     detectRC: true,
     detectIgnore: true,
+    settings: options,
     cwd:      process.cwd(),
     stdout:   process.stdout,
     stderr:   process.stderr

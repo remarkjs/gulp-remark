@@ -10,6 +10,11 @@ const fixture = new File({
   contents: new Buffer(`_italic_, **bold**.`)
 });
 
+const commonmarkFixture = new File({
+  path: 'fixture-commonmark.txt',
+  contents: new Buffer(`1) List in commonmark`)
+});
+
 it('should not do anything', done => {
   const stream = gulpRemark({ silent: true });
   stream.write(fixture);
@@ -17,6 +22,24 @@ it('should not do anything', done => {
   stream.once('data', file => {
     equal(file.relative, 'fixture.txt');
     equal(file.contents.toString().trim(), `_italic_, **bold**.`);
+    done();
+  });
+});
+
+it('should support settings', done => {
+  const stream = gulpRemark({
+    commonmark: true,
+    silent: true
+  }).use(html);
+
+  stream.write(commonmarkFixture);
+
+  stream.once('data', file => {
+    equal(file.relative, 'fixture-commonmark.txt');
+    equal(
+      file.contents.toString().trim(),
+      '<ol>\n<li>List in commonmark</li>\n</ol>'
+    );
     done();
   });
 });
