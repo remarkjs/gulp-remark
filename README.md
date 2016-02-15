@@ -28,9 +28,16 @@ gulp.task('default', () =>
 
 ## API
 
-### gulpRemark()
+### gulpRemark([options])
 
 Gulp plug-in. It processes your files through [remark][remark]. If you want to define specified options, use [`.remarkrc`][remarkrc]. The ignoring of files available using [`.remarkignore`][remarkignore] file.
+
+#### options
+
+Type: `Object`  
+Default: `{}`
+
+Passed to remark. [See its documentation][remark-settings].
 
 ### gulpRemark().use([plugin][remark-plugins][, options])
 
@@ -59,6 +66,7 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [remarkignore]: https://github.com/wooorm/remark/blob/master/doc/remarkignore.5.md
 [remark-use]: https://github.com/wooorm/remark#remarkuseplugin-options
 [remark-plugins]: https://github.com/wooorm/remark/blob/master/doc/plugins.md
+[remark-settings]: https://github.com/wooorm/remark#remarkprocessvalue-options-done
 
 [npm-url]: https://npmjs.org/package/gulp-remark
 [npm-image]: https://img.shields.io/npm/v/gulp-remark.svg?style=flat-square
