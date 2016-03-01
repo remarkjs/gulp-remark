@@ -39,7 +39,15 @@ export default function gulpRemark(options = {}) {
           callback(null, file);
         } else {
           // if not silent, output messages
-          if (!options.silent) console.log(reporter(cli.files));
+          if (!options.silent) {
+            console.log(reporter(cli.files));
+          }
+
+          // Throw error if frail is enabled
+          if (options.frail && !success) {
+            callback(new PluginError(PLUGIN_NAME, 'Unsuccessful running'));
+          }
+          
           // Return transformed contents
           file.contents = new Buffer(cli.files[0].contents, 'utf-8');
           callback(null, file);
