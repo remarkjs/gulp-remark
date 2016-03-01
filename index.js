@@ -12,10 +12,12 @@ const PLUGIN_NAME = pkg.name;
 export default function gulpRemark(options = {}) {
 
   const cli = new CLI({
-    settings: options,
-    cwd:      process.cwd(),
-    stdout:   process.stdout,
-    stderr:   process.stderr
+    detectRC:     options.detectRC     || true,
+    detectIgnore: options.detectIgnore || true,
+    settings:     options,
+    cwd:          process.cwd(),
+    stdout:       process.stdout,
+    stderr:       process.stderr
   });
 
   const plugin = obj(function (file, encoding, callback) {
