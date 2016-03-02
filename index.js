@@ -9,11 +9,18 @@ import pkg from './package';
 
 const PLUGIN_NAME = pkg.name;
 
-export default function gulpRemark(options = {}) {
+const DEFAULT_OPTIONS = {
+  detectRC:     true,
+  detectIgnore: true
+};
+
+export default function gulpRemark(OPTIONS) {
+
+  const options = Object.assign(DEFAULT_OPTIONS, OPTIONS);
 
   const cli = new CLI({
-    detectRC:     options.detectRC     || true,
-    detectIgnore: options.detectIgnore || true,
+    detectRC:     options.detectRC,
+    detectIgnore: options.detectIgnore,
     settings:     options,
     cwd:          process.cwd(),
     stdout:       process.stdout,
