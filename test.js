@@ -28,7 +28,7 @@ it('should not do anything', done => {
 
 it('should support settings', done => {
   const stream = gulpRemark({
-    commonmark: true,
+    settings: {commonmark: true},
     silent: true
   }).use(html);
 
