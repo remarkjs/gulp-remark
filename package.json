@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/denysdovhan/gulp-remark#readme",
   "dependencies": {
-    "remark": "^5.0.0",
+    "remark": "^6.0.0",
     "unified-engine-gulp": "^1.0.0"
   },
   "devDependencies": {
