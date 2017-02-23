@@ -52,7 +52,7 @@
     "isparta": "*",
     "mocha": "*",
     "npm-run-all": "*",
-    "remark-html": "^5.0.0",
+    "remark-html": "^6.0.0",
     "rimraf": "*"
   }
 }
