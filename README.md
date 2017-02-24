@@ -73,16 +73,12 @@ The [parse][remark-parse-settings] and [stringify][remark-stringify-settings] se
 
 Change the way [`remark`][remark] works by using a [`plugin`][remark-plugins].
 
-> **Note:** Be careful not to pass plug-ins which are also detected
-> (for example, from configuration files), as this results in the
-> same plug-in being attached multiple times.
-
 #### plugin
 
 *Required*  
-Type: `Function|Array.<Function>`
+Type: `Function`
 
-A [Remark plugin][remark-plugins] or `Array` of plugins.
+A [Remark plugin][remark-plugins].
 
 #### options
 
@@ -97,9 +93,9 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 
 [remark]: http://remark.js.org/
 [cli]: https://github.com/wooorm/remark/tree/master/packages/remark-cli
-[remarkrc]: https://github.com/wooorm/unified-engine/blob/master/doc/configure.md
-[remarkignore]: https://github.com/wooorm/unified-engine/blob/master/doc/ignore.md
-[remark-use]: https://github.com/wooorm/unified#processoruseplugin-options
+[remarkrc]: https://github.com/unifiedjs/unified-engine/blob/master/doc/configure.md
+[remarkignore]: https://github.com/unifiedjs/unified-engine/blob/master/doc/ignore.md
+[remark-use]: https://github.com/unifiedjs/unified#processoruseplugin-options
 [remark-plugins]: https://github.com/wooorm/remark/blob/master/doc/plugins.md
 [remark-parse-settings]: https://github.com/wooorm/remark/tree/master/packages/remark-parse#processoruseparse
 [remark-stringify-settings]: https://github.com/wooorm/remark/tree/master/packages/remark-stringify#processorusestringify
@@ -116,17 +112,17 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [depstat-url]: https://david-dm.org/denysdovhan/gulp-remark
 [depstat-image]: https://david-dm.org/denysdovhan/gulp-remark.svg?style=flat-square
 
-[detect-config]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionsdetectconfig
-[stream-error]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionsstreamerror
-[tree]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionstree
-[tree-in]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionstreein
-[tree-out]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionstreeout
-[rc-path]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionsrcpath
-[settings]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionssettings
-[detect-ignore]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionsdetectignore
-[ignore-path]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionsignorepath
-[plugins]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionsplugins
-[color]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionscolor
-[silent]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionssilent
-[quiet]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionsquiet
-[frail]: https://github.com/wooorm/unified-engine/blob/master/doc/options.md#optionsfrail
+[detect-config]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionsdetectconfig
+[stream-error]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionsstreamerror
+[tree]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionstree
+[tree-in]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionstreein
+[tree-out]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionstreeout
+[rc-path]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionsrcpath
+[settings]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionssettings
+[detect-ignore]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionsdetectignore
+[ignore-path]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionsignorepath
+[plugins]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionsplugins
+[color]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionscolor
+[silent]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionssilent
+[quiet]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionsquiet
+[frail]: https://github.com/unifiedjs/unified-engine/blob/master/doc/options.md#optionsfrail

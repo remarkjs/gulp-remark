@@ -35,8 +35,8 @@
   },
   "homepage": "https://github.com/denysdovhan/gulp-remark#readme",
   "dependencies": {
-    "remark": "^6.0.0",
-    "unified-engine-gulp": "^2.0.0"
+    "remark": "^7.0.0",
+    "unified-engine-gulp": "^3.0.0"
   },
   "devDependencies": {
     "assert": "*",
@@ -52,7 +52,7 @@
     "isparta": "*",
     "mocha": "*",
     "npm-run-all": "*",
-    "remark-html": "^5.0.0",
+    "remark-html": "^6.0.0",
     "rimraf": "*"
   }
 }
