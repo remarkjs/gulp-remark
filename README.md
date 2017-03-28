@@ -1,5 +1,7 @@
 # gulp-remark
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/denysdovhan/gulp-remark.svg)](https://greenkeeper.io/)
+
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
