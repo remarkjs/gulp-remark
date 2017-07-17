@@ -36,7 +36,7 @@
   "homepage": "https://github.com/denysdovhan/gulp-remark#readme",
   "dependencies": {
     "remark": "^7.0.0",
-    "unified-engine-gulp": "^3.0.0"
+    "unified-engine-gulp": "^4.0.0"
   },
   "devDependencies": {
     "assert": "*",
