@@ -50,7 +50,7 @@
     "event-stream": "^3.3.2",
     "gulp-util": "^3.0.7",
     "isparta": "*",
-    "mocha": "3.4.2",
+    "mocha": "3.5.0",
     "npm-run-all": "*",
     "remark-html": "^6.0.0",
     "rimraf": "*"
