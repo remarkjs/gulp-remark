@@ -1,66 +1,86 @@
-import { File, PluginError } from 'gulp-util';
-import { equal, throws }     from 'assert';
-import html                  from 'remark-html';
-import es                    from 'event-stream';
+var test = require('tape')
+var util = require('gulp-util')
+var html = require('remark-html')
+var es = require('event-stream')
+var remark = require('.')
 
-import gulpRemark            from './index';
+var File = util.File
+var PluginError = util.PluginError
 
-const fixture = new File({
+var fixture = new File({
   path: 'fixture.txt',
-  contents: new Buffer(`_italic_, **bold**.`)
-});
+  contents: Buffer.from('_italic_, **bold**.')
+})
 
-const commonmarkFixture = new File({
+var commonmarkFixture = new File({
   path: 'fixture-commonmark.txt',
-  contents: new Buffer(`1) List in commonmark`)
-});
+  contents: Buffer.from('1) List in commonmark')
+})
 
-it('should not do anything', done => {
-  const stream = gulpRemark({ silent: true });
-  stream.write(fixture);
+test('gulp-remark', function(t) {
+  t.test('should not do anything', function(st) {
+    st.plan(2)
 
-  stream.once('data', file => {
-    equal(file.relative, 'fixture.txt');
-    equal(file.contents.toString().trim(), `_italic_, **bold**.`);
-    done();
-  });
-});
+    const stream = remark({silent: true})
+    stream.write(fixture)
 
-it('should support settings', done => {
-  const stream = gulpRemark({
-    settings: {commonmark: true},
-    silent: true
-  }).use(html);
+    stream.once('data', once)
 
-  stream.write(commonmarkFixture);
+    function once(file) {
+      st.equal(file.relative, 'fixture.txt')
+      st.equal(String(file.contents), '_italic_, **bold**.\n')
+    }
+  })
 
-  stream.once('data', file => {
-    equal(file.relative, 'fixture-commonmark.txt');
-    equal(
-      file.contents.toString().trim(),
-      '<ol>\n<li>List in commonmark</li>\n</ol>'
-    );
-    done();
-  });
-});
+  t.test('should support settings', function(st) {
+    var stream = remark({settings: {commonmark: true}, silent: true}).use(html)
 
-it('should use plugins', done => {
-  const stream = gulpRemark({ silent: true }).use(html);
-  stream.write(fixture);
+    st.plan(2)
 
-  stream.once('data', file => {
-    equal(file.relative, 'fixture.txt');
-    equal(
-      file.contents.toString().trim(),
-      '<p><em>italic</em>, <strong>bold</strong>.</p>'
-    );
-    done();
-  });
-});
+    stream.write(commonmarkFixture)
 
-it('should throw PluginError with streams', () => {
-  const stream = new File({
-    contents: es.readArray(['_italic_', '**bold**', '.'])
-  });
-  throws(() => { gulpRemark().write(stream); }, PluginError);
-});
+    stream.once('data', once)
+
+    function once(file) {
+      st.equal(file.relative, 'fixture-commonmark.txt')
+      st.equal(
+        String(file.contents),
+        '<ol>\n<li>List in commonmark</li>\n</ol>\n'
+      )
+    }
+  })
+
+  t.test('should use plugins', function(st) {
+    var stream = remark({silent: true}).use(html)
+
+    st.plan(2)
+
+    stream.write(fixture)
+
+    stream.once('data', once)
+
+    function once(file) {
+      st.equal(file.relative, 'fixture.txt')
+      st.equal(
+        String(file.contents),
+        '<p><em>italic</em>, <strong>bold</strong>.</p>\n'
+      )
+    }
+  })
+
+  t.test('should throw PluginError with streams', function(st) {
+    var stream = new File({
+      contents: es.readArray(['_italic_', '**bold**', '.'])
+    })
+
+    st.throws(write, PluginError)
+
+    st.end()
+
+    function write() {
+      remark().write(stream)
+    }
+  })
+
+  t.end()
+})

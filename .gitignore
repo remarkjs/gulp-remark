@@ -1,6 +1,6 @@
 .DS_Store
-node_modules
-coverage
-npm-debug.log
-index.es5.js
+*.log
+.nyc_output/
+coverage/
+node_modules/
 yarn.lock

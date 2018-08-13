@@ -1,13 +1,12 @@
-import engine from 'unified-engine-gulp';
-import remark from 'remark';
+var engine = require('unified-engine-gulp')
+var remark = require('remark')
+var pkg = require('./package.json')
 
-import pkg from './package';
-
-export default engine({
-  name: pkg.name,
+module.exports = engine({
   processor: remark,
-  rcName: '.remarkrc',
+  name: pkg.name,
+  pluginPrefix: 'remark',
   packageField: 'remarkConfig',
-  ignoreName: '.remarkignore',
-  pluginPrefix: 'remark'
-});
+  rcName: '.remarkrc',
+  ignoreName: '.remarkignore'
+})
