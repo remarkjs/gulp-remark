@@ -26,15 +26,15 @@
     "unified-engine-gulp": "^6.0.0"
   },
   "devDependencies": {
-    "event-stream": "^3.3.4",
+    "event-stream": "^4.0.0",
     "gulp-util": "^3.0.8",
-    "nyc": "^12.0.0",
+    "nyc": "^13.0.0",
     "prettier": "^1.14.2",
-    "remark-cli": "^5.0.0",
+    "remark-cli": "^6.0.0",
     "remark-html": "^8.0.0",
     "remark-preset-wooorm": "^4.0.0",
     "tape": "^4.0.0",
-    "xo": "^0.22.0"
+    "xo": "^0.23.0"
   },
   "scripts": {
     "format": "remark . -qfo && prettier --write \"**/*.js\" && xo --fix",
