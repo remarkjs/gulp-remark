@@ -22,7 +22,7 @@
     "index.js"
   ],
   "dependencies": {
-    "remark": "^9.0.0",
+    "remark": "^10.0.0",
     "unified-engine-gulp": "^6.0.0"
   },
   "devDependencies": {
