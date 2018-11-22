@@ -78,7 +78,7 @@ repository, organisation, or community you agree to abide by its terms.
 
 [license]: license
 
-[author]: http://denysdovhan.com
+[author]: https://denysdovhan.com
 
 [npm]: https://docs.npmjs.com/cli/install
 
