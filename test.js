@@ -1,7 +1,7 @@
+var PassThrough = require('stream').PassThrough
 var test = require('tape')
 var util = require('gulp-util')
 var html = require('remark-html')
-var es = require('event-stream')
 var remark = require('.')
 
 var File = util.File
@@ -69,16 +69,19 @@ test('gulp-remark', function(t) {
   })
 
   t.test('should throw PluginError with streams', function(st) {
-    var stream = new File({
-      contents: es.readArray(['_italic_', '**bold**', '.'])
-    })
+    var inStream = new PassThrough()
+
+    var outStream = new File({contents: inStream})
 
     st.throws(write, PluginError)
 
     st.end()
 
     function write() {
-      remark().write(stream)
+      inStream.write('_italic_')
+      inStream.write('**bold**')
+      inStream.write('.')
+      remark().write(outStream)
     }
   })
 
