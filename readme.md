@@ -22,7 +22,7 @@ npm install --save-dev gulp-remark
 
 ```js
 var gulp = require('gulp')
-var remark = require('remark-gulp')
+var remark = require('gulp-remark')
 var html = require('remark-html')
 var lint = require('remark-preset-lint-markdown-style-guide')
 
