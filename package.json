@@ -1,22 +1,24 @@
 {
   "name": "gulp-remark",
   "version": "6.0.2",
-  "description": "Gulp plugin for Remark",
+  "description": "Gulp plugin for remark",
   "license": "MIT",
   "keywords": [
-    "gulpplugin",
-    "mdast",
+    "unified",
     "remark",
-    "md",
+    "mdast",
     "markdown",
-    "gulp"
+    "md",
+    "gulp",
+    "gulpplugin"
   ],
   "repository": "remarkjs/gulp-remark",
   "bugs": "https://github.com/remarkjs/gulp-remark/issues",
   "author": "Denys Dovhan <email@denysdovhan.com> (https://denysdovhan.com)",
   "contributors": [
     "Denys Dovhan <email@denysdovhan.com> (https://denysdovhan.com)",
-    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
+    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
+    "Margatroid <lwzbill@foxmail.com>"
   ],
   "files": [
     "index.js"
