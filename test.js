@@ -1,18 +1,16 @@
 var PassThrough = require('stream').PassThrough
+var PluginError = require('plugin-error')
+var Vinyl = require('vinyl')
 var test = require('tape')
-var util = require('gulp-util')
 var html = require('remark-html')
 var remark = require('.')
 
-var File = util.File
-var PluginError = util.PluginError
-
-var fixture = new File({
+var fixture = new Vinyl({
   path: 'fixture.txt',
   contents: Buffer.from('_italic_, **bold**.')
 })
 
-var commonmarkFixture = new File({
+var commonmarkFixture = new Vinyl({
   path: 'fixture-commonmark.txt',
   contents: Buffer.from('1) List in commonmark')
 })
@@ -28,7 +26,7 @@ test('gulp-remark', function(t) {
 
     function once(file) {
       st.equal(file.relative, 'fixture.txt')
-      st.equal(String(file.contents), '_italic_, **bold**.\n')
+      st.equal(String(file.contents), '*italic*, **bold**.\n')
     }
   })
 
@@ -71,7 +69,7 @@ test('gulp-remark', function(t) {
   t.test('should throw PluginError with streams', function(st) {
     var inStream = new PassThrough()
 
-    var outStream = new File({contents: inStream})
+    var outStream = new Vinyl({contents: inStream})
 
     st.throws(write, PluginError)
 
