@@ -24,8 +24,8 @@
     "index.js"
   ],
   "dependencies": {
-    "remark": "^10.0.0",
-    "unified-engine-gulp": "^6.0.0"
+    "remark": "^11.0.0",
+    "unified-engine-gulp": "^7.0.0"
   },
   "devDependencies": {
     "nyc": "^14.0.0",
