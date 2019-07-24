@@ -33,7 +33,7 @@
     "prettier": "^1.0.0",
     "remark-cli": "^7.0.0",
     "remark-html": "^10.0.0",
-    "remark-preset-wooorm": "^5.0.0",
+    "remark-preset-wooorm": "^6.0.0",
     "tape": "^4.0.0",
     "vinyl": "^2.0.0",
     "xo": "^0.24.0"
