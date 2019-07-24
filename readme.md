@@ -58,6 +58,12 @@ settings can be passed in `options.settings`, or in configuration files
 
 Change the way [**remark**][remark] works by using a [`plugin`][remark-plugins].
 
+## Security
+
+Use of [**remark**][remark] and its plugins could open you up to
+[cross-site scripting (XSS)][xss] or other attacks.
+Carefully assess each plugin and the risks involved in using them.
+
 ## Contribute
 
 See [`contributing.md`][contributing] in [`remarkjs/.github`][health] for ways
@@ -127,3 +133,5 @@ abide by its terms.
 [remark-stringify-settings]: https://github.com/remarkjs/remark/tree/master/packages/remark-stringify#processorusestringify-options
 
 [engine]: https://github.com/unifiedjs/unified-engine-gulp#engineoptions
+
+[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
