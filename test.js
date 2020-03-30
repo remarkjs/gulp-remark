@@ -15,8 +15,8 @@ var commonmarkFixture = new Vinyl({
   contents: Buffer.from('1) List in commonmark')
 })
 
-test('gulp-remark', function(t) {
-  t.test('should not do anything', function(st) {
+test('gulp-remark', function (t) {
+  t.test('should not do anything', function (st) {
     st.plan(2)
 
     const stream = remark({silent: true})
@@ -30,7 +30,7 @@ test('gulp-remark', function(t) {
     }
   })
 
-  t.test('should support settings', function(st) {
+  t.test('should support settings', function (st) {
     var stream = remark({settings: {commonmark: true}, silent: true}).use(html)
 
     st.plan(2)
@@ -48,7 +48,7 @@ test('gulp-remark', function(t) {
     }
   })
 
-  t.test('should use plugins', function(st) {
+  t.test('should use plugins', function (st) {
     var stream = remark({silent: true}).use(html)
 
     st.plan(2)
@@ -66,7 +66,7 @@ test('gulp-remark', function(t) {
     }
   })
 
-  t.test('should throw PluginError with streams', function(st) {
+  t.test('should throw PluginError with streams', function (st) {
     var inStream = new PassThrough()
 
     var outStream = new Vinyl({contents: inStream})
