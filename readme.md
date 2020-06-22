@@ -80,7 +80,7 @@ abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/remarkjs/gulp-remark/master.svg
+[build-badge]: https://img.shields.io/travis/remarkjs/gulp-remark/main.svg
 
 [build]: https://travis-ci.org/remarkjs/gulp-remark
 
@@ -106,11 +106,11 @@ abide by its terms.
 
 [health]: https://github.com/remarkjs/.github
 
-[contributing]: https://github.com/remarkjs/.github/blob/master/contributing.md
+[contributing]: https://github.com/remarkjs/.github/blob/HEAD/contributing.md
 
-[support]: https://github.com/remarkjs/.github/blob/master/support.md
+[support]: https://github.com/remarkjs/.github/blob/HEAD/support.md
 
-[coc]: https://github.com/remarkjs/.github/blob/master/code-of-conduct.md
+[coc]: https://github.com/remarkjs/.github/blob/HEAD/code-of-conduct.md
 
 [license]: license
 
@@ -120,17 +120,17 @@ abide by its terms.
 
 [gulp]: https://github.com/gulpjs/gulp
 
-[cli]: https://github.com/remarkjs/remark/tree/master/packages/remark-cli
+[cli]: https://github.com/remarkjs/remark/tree/HEAD/packages/remark-cli
 
-[remarkrc]: https://github.com/unifiedjs/unified-engine/blob/master/doc/configure.md
+[remarkrc]: https://github.com/unifiedjs/unified-engine/blob/HEAD/doc/configure.md
 
-[remarkignore]: https://github.com/unifiedjs/unified-engine/blob/master/doc/ignore.md
+[remarkignore]: https://github.com/unifiedjs/unified-engine/blob/HEAD/doc/ignore.md
 
-[remark-plugins]: https://github.com/remarkjs/remark/blob/master/doc/plugins.md
+[remark-plugins]: https://github.com/remarkjs/remark/blob/HEAD/doc/plugins.md
 
-[remark-parse-settings]: https://github.com/remarkjs/remark/tree/master/packages/remark-parse#processoruseparse-options
+[remark-parse-settings]: https://github.com/remarkjs/remark/tree/HEAD/packages/remark-parse#processoruseparse-options
 
-[remark-stringify-settings]: https://github.com/remarkjs/remark/tree/master/packages/remark-stringify#processorusestringify-options
+[remark-stringify-settings]: https://github.com/remarkjs/remark/tree/HEAD/packages/remark-stringify#processorusestringify-options
 
 [engine]: https://github.com/unifiedjs/unified-engine-gulp#engineoptions
 
