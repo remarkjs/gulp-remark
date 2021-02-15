@@ -80,9 +80,9 @@ abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/remarkjs/gulp-remark/main.svg
+[build-badge]: https://github.com/remarkjs/gulp-remark/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/remarkjs/gulp-remark
+[build]: https://github.com/remarkjs/gulp-remark/actions
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/remarkjs/gulp-remark.svg
 
