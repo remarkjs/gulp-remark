@@ -1,9 +1,9 @@
-var PassThrough = require('stream').PassThrough
-var PluginError = require('plugin-error')
-var Vinyl = require('vinyl')
-var test = require('tape')
-var html = require('remark-html')
-var remark = require('.')
+import {PassThrough} from 'stream'
+import PluginError from 'plugin-error'
+import Vinyl from 'vinyl'
+import test from 'tape'
+import html from 'remark-html'
+import {remark} from './index.js'
 
 var fixture = new Vinyl({
   path: 'fixture.txt',

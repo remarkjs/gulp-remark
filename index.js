@@ -1,10 +1,9 @@
-var engine = require('unified-engine-gulp')
-var remark = require('remark')
-var pkg = require('./package.json')
+import engine from 'unified-engine-gulp'
+import processor from 'remark'
 
-module.exports = engine({
-  processor: remark,
-  name: pkg.name,
+export const remark = engine({
+  processor,
+  name: 'gulp-remark',
   pluginPrefix: 'remark',
   packageField: 'remarkConfig',
   rcName: '.remarkrc',
