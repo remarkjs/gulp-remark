@@ -2,7 +2,7 @@ import {PassThrough} from 'stream'
 import PluginError from 'plugin-error'
 import Vinyl from 'vinyl'
 import test from 'tape'
-import html from 'remark-html'
+import remarkHtml from 'remark-html'
 import {remark} from './index.js'
 
 const fixture = new Vinyl({
@@ -32,7 +32,7 @@ test('gulp-remark', (t) => {
 
   t.test('should support settings', (st) => {
     const stream = remark({settings: {commonmark: true}, silent: true}).use(
-      html
+      remarkHtml
     )
 
     st.plan(2)
@@ -51,7 +51,7 @@ test('gulp-remark', (t) => {
   })
 
   t.test('should use plugins', (st) => {
-    const stream = remark({silent: true}).use(html)
+    const stream = remark({silent: true}).use(remarkHtml)
 
     st.plan(2)
 

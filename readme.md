@@ -12,6 +12,9 @@ plugins.
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -21,26 +24,25 @@ npm install --save-dev gulp-remark
 ## Use
 
 ```js
-var gulp = require('gulp')
-var remark = require('gulp-remark')
-var html = require('remark-html')
-var lint = require('remark-preset-lint-markdown-style-guide')
+import gulp from 'gulp'
+import {remark} from 'gulp-remark'
+import remarkHtml from 'remark-html'
+import remarkPresetLintMarkdownStyleGuide from 'remark-preset-lint-markdown-style-guide'
 
-gulp.task('default', function() {
+gulp.task('default', () => {
   gulp
     .src('*.md')
-    .pipe(
-      remark()
-        .use(html)
-        .use(lint)
-    )
+    .pipe(remark().use(remarkHtml).use(remarkPresetLintMarkdownStyleGuide))
     .pipe(gulp.dest('dist'))
 })
 ```
 
 ## API
 
-### `remark([options])`
+This package exports the following identifier: `remark`.
+There is no default export.
+
+### `remark(options?)`
 
 Create a Gulp plugin.
 The files are processed with [**remark**][remark].
