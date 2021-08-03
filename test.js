@@ -22,12 +22,10 @@ test('gulp-remark', (t) => {
     const stream = remark({silent: true})
     stream.write(fixture)
 
-    stream.once('data', once)
-
-    function once(file) {
+    stream.once('data', (/** @type {Vinyl} */ file) => {
       st.equal(file.relative, 'fixture.txt')
       st.equal(String(file.contents), '*italic*, **bold**.\n')
-    }
+    })
   })
 
   t.test('should support settings', (st) => {
@@ -39,15 +37,13 @@ test('gulp-remark', (t) => {
 
     stream.write(commonmarkFixture)
 
-    stream.once('data', once)
-
-    function once(file) {
+    stream.once('data', (/** @type {Vinyl} */ file) => {
       st.equal(file.relative, 'fixture-commonmark.txt')
       st.equal(
         String(file.contents),
         '<ol>\n<li>List in commonmark</li>\n</ol>\n'
       )
-    }
+    })
   })
 
   t.test('should use plugins', (st) => {
@@ -57,15 +53,13 @@ test('gulp-remark', (t) => {
 
     stream.write(fixture)
 
-    stream.once('data', once)
-
-    function once(file) {
+    stream.once('data', (/** @type {Vinyl} */ file) => {
       st.equal(file.relative, 'fixture.txt')
       st.equal(
         String(file.contents),
         '<p><em>italic</em>, <strong>bold</strong>.</p>\n'
       )
-    }
+    })
   })
 
   t.test('should throw PluginError with streams', (st) => {
@@ -81,7 +75,7 @@ test('gulp-remark', (t) => {
       inStream.write('_italic_')
       inStream.write('**bold**')
       inStream.write('.')
-      remark().write(outStream)
+      remark({}).write(outStream)
     }
   })
 
