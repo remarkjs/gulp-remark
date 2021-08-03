@@ -34,7 +34,7 @@
     "c8": "^7.0.0",
     "plugin-error": "^1.0.0",
     "prettier": "^2.0.0",
-    "remark-cli": "^9.0.0",
+    "remark-cli": "^10.0.0",
     "remark-html": "^13.0.0",
     "remark-preset-wooorm": "^8.0.0",
     "tape": "^5.0.0",
