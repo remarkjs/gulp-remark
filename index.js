@@ -1,7 +1,7 @@
-import engine from 'unified-engine-gulp'
-import processor from 'remark'
+import {gulpEngine} from 'unified-engine-gulp'
+import {remark as processor} from 'remark'
 
-export const remark = engine({
+export const remark = gulpEngine({
   processor,
   name: 'gulp-remark',
   pluginPrefix: 'remark',
