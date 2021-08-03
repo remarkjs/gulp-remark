@@ -1,4 +1,4 @@
-import {PassThrough} from 'stream'
+import {PassThrough} from 'node:stream'
 import PluginError from 'plugin-error'
 import Vinyl from 'vinyl'
 import test from 'tape'
@@ -16,60 +16,60 @@ const commonmarkFixture = new Vinyl({
 })
 
 test('gulp-remark', (t) => {
-  t.test('should not do anything', (st) => {
-    st.plan(2)
+  t.test('should not do anything', (t) => {
+    t.plan(2)
 
     const stream = remark({silent: true})
     stream.write(fixture)
 
     stream.once('data', (/** @type {Vinyl} */ file) => {
-      st.equal(file.relative, 'fixture.txt')
-      st.equal(String(file.contents), '*italic*, **bold**.\n')
+      t.equal(file.relative, 'fixture.txt')
+      t.equal(String(file.contents), '*italic*, **bold**.\n')
     })
   })
 
-  t.test('should support settings', (st) => {
+  t.test('should support settings', (t) => {
     const stream = remark({settings: {commonmark: true}, silent: true}).use(
       remarkHtml
     )
 
-    st.plan(2)
+    t.plan(2)
 
     stream.write(commonmarkFixture)
 
     stream.once('data', (/** @type {Vinyl} */ file) => {
-      st.equal(file.relative, 'fixture-commonmark.txt')
-      st.equal(
+      t.equal(file.relative, 'fixture-commonmark.txt')
+      t.equal(
         String(file.contents),
         '<ol>\n<li>List in commonmark</li>\n</ol>\n'
       )
     })
   })
 
-  t.test('should use plugins', (st) => {
+  t.test('should use plugins', (t) => {
     const stream = remark({silent: true}).use(remarkHtml)
 
-    st.plan(2)
+    t.plan(2)
 
     stream.write(fixture)
 
     stream.once('data', (/** @type {Vinyl} */ file) => {
-      st.equal(file.relative, 'fixture.txt')
-      st.equal(
+      t.equal(file.relative, 'fixture.txt')
+      t.equal(
         String(file.contents),
         '<p><em>italic</em>, <strong>bold</strong>.</p>\n'
       )
     })
   })
 
-  t.test('should throw PluginError with streams', (st) => {
+  t.test('should throw PluginError with streams', (t) => {
     const inStream = new PassThrough()
 
     const outStream = new Vinyl({contents: inStream})
 
-    st.throws(write, PluginError)
+    t.throws(write, PluginError)
 
-    st.end()
+    t.end()
 
     function write() {
       inStream.write('_italic_')
