@@ -1,3 +1,4 @@
+import {Buffer} from 'node:buffer'
 import {PassThrough} from 'node:stream'
 import PluginError from 'plugin-error'
 import Vinyl from 'vinyl'
