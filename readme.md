@@ -1,80 +1,12 @@
 # gulp-remark
 
-[![Build][build-badge]][build]
-[![Coverage][coverage-badge]][coverage]
-[![Downloads][downloads-badge]][downloads]
-[![Sponsors][sponsors-badge]][collective]
-[![Backers][backers-badge]][collective]
-[![Chat][chat-badge]][chat]
+**Stability: Legacy**.
+This package is no longer recommended for use.
+It’s still covered by semantic-versioning guarantees and not yet deprecated, but
+use of this package should be avoided.
+Please use an alternative to Gulp such as npm scripts instead.
 
-[Gulp][] plugin for [**remark**][remark] — Markdown processor powered by
-plugins.
-
-## Install
-
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
-Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
-
-[npm][]:
-
-```sh
-npm install --save-dev gulp-remark
-```
-
-## Use
-
-```js
-import gulp from 'gulp'
-import {remark} from 'gulp-remark'
-import remarkHtml from 'remark-html'
-import remarkPresetLintMarkdownStyleGuide from 'remark-preset-lint-markdown-style-guide'
-
-gulp.task('default', () => {
-  gulp
-    .src('*.md')
-    .pipe(remark().use(remarkHtml).use(remarkPresetLintMarkdownStyleGuide))
-    .pipe(gulp.dest('dist'))
-})
-```
-
-## API
-
-This package exports the following identifier: `remark`.
-There is no default export.
-
-### `remark(options?)`
-
-Create a Gulp plugin.
-The files are processed with [**remark**][remark].
-This is similar to the [`remark-cli`][cli], so you can specify configuration
-with [`.remarkrc`][remarkrc] and ignore files ([`.remarkignore`][remarkignore]).
-
-###### `options`
-
-All options are passed to [`unified-engine-gulp`][engine].
-The [parse][remark-parse-settings] and [stringify][remark-stringify-settings]
-settings can be passed in `options.settings`, or in configuration files
-(`.remarkrc`, `package.json`).
-
-### `remark().use(plugin[, options])`
-
-Change the way [**remark**][remark] works by using a [`plugin`][remark-plugins].
-
-## Security
-
-Use of [**remark**][remark] and its plugins could open you up to
-[cross-site scripting (XSS)][xss] or other attacks.
-Carefully assess each plugin and the risks involved in using them.
-
-## Contribute
-
-See [`contributing.md`][contributing] in [`remarkjs/.github`][health] for ways
-to get started.
-See [`support.md`][support] for ways to get help.
-
-This project has a [Code of Conduct][coc].
-By interacting with this repository, organisation, or community you agree to
-abide by its terms.
+Legacy [documentation for this package][docs] is still available in Git.
 
 ## License
 
@@ -82,58 +14,8 @@ abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://github.com/remarkjs/gulp-remark/workflows/main/badge.svg
-
-[build]: https://github.com/remarkjs/gulp-remark/actions
-
-[coverage-badge]: https://img.shields.io/codecov/c/github/remarkjs/gulp-remark.svg
-
-[coverage]: https://codecov.io/github/remarkjs/gulp-remark
-
-[downloads-badge]: https://img.shields.io/npm/dm/gulp-remark.svg
-
-[downloads]: https://www.npmjs.com/package/gulp-remark
-
-[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
-
-[backers-badge]: https://opencollective.com/unified/backers/badge.svg
-
-[collective]: https://opencollective.com/unified
-
-[chat-badge]: https://img.shields.io/badge/chat-discussions-success.svg
-
-[chat]: https://github.com/remarkjs/remark/discussions
-
-[npm]: https://docs.npmjs.com/cli/install
-
-[health]: https://github.com/remarkjs/.github
-
-[contributing]: https://github.com/remarkjs/.github/blob/HEAD/contributing.md
-
-[support]: https://github.com/remarkjs/.github/blob/HEAD/support.md
-
-[coc]: https://github.com/remarkjs/.github/blob/HEAD/code-of-conduct.md
-
 [license]: license
 
 [author]: https://denysdovhan.com
 
-[remark]: https://github.com/remarkjs/remark
-
-[gulp]: https://github.com/gulpjs/gulp
-
-[cli]: https://github.com/remarkjs/remark/tree/HEAD/packages/remark-cli
-
-[remarkrc]: https://github.com/unifiedjs/unified-engine/blob/HEAD/doc/configure.md
-
-[remarkignore]: https://github.com/unifiedjs/unified-engine/blob/HEAD/doc/ignore.md
-
-[remark-plugins]: https://github.com/remarkjs/remark/blob/HEAD/doc/plugins.md
-
-[remark-parse-settings]: https://github.com/remarkjs/remark/tree/HEAD/packages/remark-parse#processoruseparse-options
-
-[remark-stringify-settings]: https://github.com/remarkjs/remark/tree/HEAD/packages/remark-stringify#processorusestringify-options
-
-[engine]: https://github.com/unifiedjs/unified-engine-gulp#engineoptions
-
-[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
+[docs]: https://github.com/remarkjs/gulp-remark/tree/0676fdd
