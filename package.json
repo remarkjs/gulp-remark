@@ -1,17 +1,9 @@
 {
   "name": "gulp-remark",
   "version": "10.0.0",
-  "description": "Gulp plugin for remark",
+  "description": "Legacy gulp plugin for remark — please use alternatives to Gulp such as npm scripts instead",
   "license": "MIT",
-  "keywords": [
-    "unified",
-    "remark",
-    "mdast",
-    "markdown",
-    "md",
-    "gulp",
-    "gulpplugin"
-  ],
+  "keywords": [],
   "repository": "remarkjs/gulp-remark",
   "bugs": "https://github.com/remarkjs/gulp-remark/issues",
   "author": "Denys Dovhan <email@denysdovhan.com> (https://denysdovhan.com)",
